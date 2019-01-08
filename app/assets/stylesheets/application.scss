@@ -5,3 +5,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+
+.profile {
+  border-style: solid;
+  border-width: thin;
+  padding: 10px;
+}
+
+.timestamp {
+  font-style: oblique;
+}
+
+.handle {
+  font-weight: bold;
+}

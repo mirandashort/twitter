@@ -3,7 +3,7 @@ en:
   activerecord:
     attributes:
       tweet:
-        message: "A Tweet"
+        message: "What's on your mind? "
       user:
         username: "A username"
     errors:

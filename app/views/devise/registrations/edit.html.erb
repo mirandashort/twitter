@@ -28,6 +28,14 @@
   <%= f.file_field :avatar %>
 </div>
 
+<div class="form-group">
+  <%= f.email_field :email, placeholder: "Email Address", class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.password_field :password, placeholder: "Password (8 character minimum)", class: "form-control" %>
+</div>
+
 
 <div class="actions">
   <%= f.submit "Update" %>

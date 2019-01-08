@@ -1,11 +1,26 @@
-<h1>@<%= current_user.username %>'s Twitter Feed</h1>
-<p>Here is what your "friends" are saying:</p>
+<% if current_user %>
+<div class="profile">
+  <p class="handle">Welcome, @<%= current_user.username %></p>
+  <p>Here is what your "friends" are saying:</p>
+</div>
+<% else %>
+<div class="profile">
+  <p class="handle">Welcome, stranger!</p>
+  <p><%= link_to 'Click here', '/users/sign_in' %> to sign in</p>
+  <p>Not already a twatter? <%= link_to 'Sign up here', '/users/sign_up' %></p>
+</div>
+<% end %>
+
+<br>
 
 <div>
-  <% @following_tweets.each do |tweet| %>
+  <% @following_tweets.reverse.each do |tweet| %>
     <div>
-      <p>@<%= tweet.user.username %></p>
+      <p class="handle">@<%= link_to tweet.user.username, show_user_path(id: tweet.user.id) %></p>
       <p><%= tweet.message.html_safe %></p>
+      <p class="timestamp"><%= time_ago_in_words(tweet.created_at) %> ago</p>
+      <p><%= link_to 'Show', tweet %></p>
     </div>
+    <hr>
   <% end %>
 </div>

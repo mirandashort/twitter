@@ -16,6 +16,7 @@
       <tr>
         <td><%= tweet.message %></td>
         <td>@<%= link_to tweet.user.username, show_user_path(id: tweet.user.id) %></td>
+        <td><%= tweet.created_at %></td>
       </tr>
     <% end %>
   </tbody>
