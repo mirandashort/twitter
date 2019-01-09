@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <%= favicon_link_tag asset_path('favicon-twitter.ico'), :rel => 'icon', :type =>  'image/png' %>
   </head>
 
   <!-- app/views/layouts/application.html.erb -->
@@ -23,7 +24,7 @@
             <span class="icon-bar"></span>
           </button>
           <span style="font-size: 3rem;">
-            <a href="/"><i class="fab fa-twitter"></i></a>
+            <a href="/"><i class="fab fa-twitter twitter"></i></a>
           </span>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -39,7 +40,7 @@
                   <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><%= link_to "Compose New Tweet", new_tweet_path %></li>
-                  <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+                  <li><%= link_to "View Profile", show_user_path(id: current_user.id) %></li>
                   <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
                 </ul>
               </li>

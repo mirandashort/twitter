@@ -19,7 +19,7 @@
 <% @user.tweets.reverse.each do |tweet| %>
   <div>
     <p class="handle">@<%= @user.username %></p>
-    <p><%= tweet.message %></p>
+    <p><%= tweet.message.html_safe %></p>
     <p class="timestamp"><%= time_ago_in_words(tweet.created_at) %> ago</p>
     <hr>
   </div>

@@ -1,18 +1,23 @@
-<div>
-    <h1><%= @tag.phrase %></h1>
+<div class="hashtag-feed">
+  Related to <%= @tag.phrase %>
 </div>
+<br><br>
 
-<div class="row">
+<div class="row feed-container">
   <!-- a place for current user stats -->
   <div>
     <% @tag.tweets.order(created_at: :desc).each do |tweet| %>
-        <p>
-	    <%= tweet.user.name %> <%= "@#{tweet.user.username}" %>
-	    • <%= time_ago_in_words(tweet.created_at) %>
-        </p>
-	<p>
-	    <%= tweet.message.html_safe %>
-	</p>
+      <p>
+        <%= link_to "@#{tweet.user.username}", show_user_path(id: tweet.user.id) %>
+        •
+        <span class="timestamp"><%= time_ago_in_words(tweet.created_at) %> ago</span>
+      </p>
+      <p>
+        <%= tweet.message.html_safe %>
+      </p>
+      <hr>
     <% end %>
-   </div>
+  </div>
 </div>
+
+<div><%= link_to "Back to feed", root_path %></div>

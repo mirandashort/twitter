@@ -13,12 +13,16 @@
 
 <br>
 
-<div>
+<div class"feed-container">
   <% @following_tweets.reverse.each do |tweet| %>
     <div>
-      <p class="handle">@<%= link_to tweet.user.username, show_user_path(id: tweet.user.id) %></p>
+      <div class="">
+        <%= link_to "@#{tweet.user.username}", show_user_path(id: tweet.user.id) %>
+        •
+        <span class="timestamp"><%= time_ago_in_words(tweet.created_at) %> ago</span>
+      </div>
+
       <p><%= tweet.message.html_safe %></p>
-      <p class="timestamp"><%= time_ago_in_words(tweet.created_at) %> ago</p>
       <p><%= link_to 'Show', tweet %></p>
     </div>
     <hr>

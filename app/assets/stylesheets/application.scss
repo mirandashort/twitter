@@ -14,8 +14,33 @@
 
 .timestamp {
   font-style: oblique;
+  color: #657786;
 }
 
-.handle {
+// .handle {
+//   font-weight: bold;
+// }
+
+a {
+  color: #00aced;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #00aced;
+}
+
+.twitter {
+  color: #00aced;
+}
+
+.hashtag-feed {
   font-weight: bold;
+  color: #00aced;
+  // font-size: 18px;
+  text-align: left;
+}
+
+.feed-container {
+  margin-left: auto;
 }
